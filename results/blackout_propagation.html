@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fa295dd85409f59866a4c6cd8c6acc2a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <h3 align="center" style="font-size:16px"><b>Spain/Portugal Blackout Propagation - April 28, 2025</b></h3>
+    
+    
+    <div style="position: fixed; 
+        bottom: 50px; left: 50px; width: 180px; height: 120px; 
+        border:2px solid grey; z-index:9999; font-size:12px;
+        background-color: white; padding: 10px;
+        border-radius: 5px;">
+        <p><b>Blackout Propagation</b></p>
+        <p><i class="fa fa-circle" style="color:red"></i> Spain</p>
+        <p><i class="fa fa-circle" style="color:green"></i> Portugal</p>
+        <p><i class="fa fa-circle" style="color:blue"></i> France</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_fa295dd85409f59866a4c6cd8c6acc2a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fa295dd85409f59866a4c6cd8c6acc2a = L.map(
+                "map_fa295dd85409f59866a4c6cd8c6acc2a",
+                {
+                    center: [40.0, -4.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e4017b7089fc0affcc352a66daaa590b = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e4017b7089fc0affcc352a66daaa590b.addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var poly_line_df58c7c3a3fed74ee70b2a6fcce5e72a = L.polyline(
+                [[42.6986, 2.8954], [41.9794, 2.8214]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_df58c7c3a3fed74ee70b2a6fcce5e72a.bindTooltip(
+                `<div>
+                     perpignan - gerona: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_607aa42fc01e8a25bfd774fd5117c198 = L.polyline(
+                [[41.9794, 2.8214], [41.3851, 2.1734]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_607aa42fc01e8a25bfd774fd5117c198.bindTooltip(
+                `<div>
+                     gerona - barcelona: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bde8f1306831d38a2789d1fe3c658c43 = L.polyline(
+                [[41.3851, 2.1734], [41.6488, -0.8891]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_bde8f1306831d38a2789d1fe3c658c43.bindTooltip(
+                `<div>
+                     barcelona - zaragoza: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_18a5a348f521f2c9519a3f50fcde2d7f = L.polyline(
+                [[41.6488, -0.8891], [43.2627, -2.9253]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_18a5a348f521f2c9519a3f50fcde2d7f.bindTooltip(
+                `<div>
+                     zaragoza - bilbao: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7c9906468d0638368f788c648590e36a = L.polyline(
+                [[41.6488, -0.8891], [40.4168, -3.7038]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_7c9906468d0638368f788c648590e36a.bindTooltip(
+                `<div>
+                     zaragoza - madrid: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_80f29756999eedb2ce85018ef7c29e54 = L.polyline(
+                [[40.4168, -3.7038], [39.4699, -0.3763]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_80f29756999eedb2ce85018ef7c29e54.bindTooltip(
+                `<div>
+                     madrid - valencia: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c083fd84b1de5c1252272fd80493be20 = L.polyline(
+                [[40.4168, -3.7038], [37.3891, -5.9845]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_c083fd84b1de5c1252272fd80493be20.bindTooltip(
+                `<div>
+                     madrid - sevilla: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_243c4bc4c1f1b52daa3347f4fd427a10 = L.polyline(
+                [[37.3891, -5.9845], [36.7213, -4.4213]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_243c4bc4c1f1b52daa3347f4fd427a10.bindTooltip(
+                `<div>
+                     sevilla - malaga: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_19426e1a3fe857f53d50490fa24dde80 = L.polyline(
+                [[37.3891, -5.9845], [38.7223, -9.1393]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_19426e1a3fe857f53d50490fa24dde80.bindTooltip(
+                `<div>
+                     sevilla - lisbon: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_85c8c17189f77c2471074e0975999018 = L.polyline(
+                [[38.7223, -9.1393], [41.1579, -8.6291]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_85c8c17189f77c2471074e0975999018.bindTooltip(
+                `<div>
+                     lisbon - porto: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c93d7a659dd3e6bda1db13dc5634289d = L.polyline(
+                [[41.1579, -8.6291], [43.2627, -2.9253]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_c93d7a659dd3e6bda1db13dc5634289d.bindTooltip(
+                `<div>
+                     porto - bilbao: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7c649461262e642e247d73b0fc47dbf1 = L.polyline(
+                [[43.6047, 1.4442], [42.6986, 2.8954]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_7c649461262e642e247d73b0fc47dbf1.bindTooltip(
+                `<div>
+                     toulouse - perpignan: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_41234287f5352e4ef3e9ac67772dda91 = L.polyline(
+                [[43.6047, 1.4442], [44.8378, -0.5792]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_41234287f5352e4ef3e9ac67772dda91.bindTooltip(
+                `<div>
+                     toulouse - bordeaux: 400 kV, operational
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bc8e3e0a8e4f4b91a1c8fd098b9bbc97 = L.polyline(
+                [[44.8378, -0.5792], [43.2627, -2.9253]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            poly_line_bc8e3e0a8e4f4b91a1c8fd098b9bbc97.bindTooltip(
+                `<div>
+                     bordeaux - bilbao: 400 kV, failed
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9fc57aa9293407fc6d623e3eb05cb594 = L.circleMarker(
+                [42.6986, 2.8954],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_1fe70fccb812ac77d80c37e22dfc18eb = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7022a7cc652bd57e636ecd2e8a96c2a9 = $(`<div id="html_7022a7cc652bd57e636ecd2e8a96c2a9" style="width: 100.0%; height: 100.0%;">         <b>Perpignan</b><br>         Country: France<br>         Outage time: 12:33:00<br>         Minutes after start: -2.0         </div>`)[0];
+                popup_1fe70fccb812ac77d80c37e22dfc18eb.setContent(html_7022a7cc652bd57e636ecd2e8a96c2a9);
+            
+        
+
+        circle_marker_9fc57aa9293407fc6d623e3eb05cb594.bindPopup(popup_1fe70fccb812ac77d80c37e22dfc18eb)
+        ;
+
+        
+    
+    
+            circle_marker_9fc57aa9293407fc6d623e3eb05cb594.bindTooltip(
+                `<div>
+                     Perpignan: T+-2.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ac0a48dc31c7d3f47560ef5216f8c302 = L.marker(
+                [42.6986, 2.8954],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_f65c3c58a7f591079525903f8d75c90a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003ePerpignan\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_ac0a48dc31c7d3f47560ef5216f8c302.setIcon(div_icon_f65c3c58a7f591079525903f8d75c90a);
+        
+    
+                marker_ac0a48dc31c7d3f47560ef5216f8c302.setIcon(div_icon_f65c3c58a7f591079525903f8d75c90a);
+            
+    
+            var circle_marker_8115dcfd4cccf9e7401603ca686a2304 = L.circleMarker(
+                [41.9794, 2.8214],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_18abc83eb5bee68a672b960b46134a41 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_05830bb26fe3f6c5bcbc4376d1c85c3f = $(`<div id="html_05830bb26fe3f6c5bcbc4376d1c85c3f" style="width: 100.0%; height: 100.0%;">         <b>Gerona</b><br>         Country: Spain<br>         Outage time: 12:35:00<br>         Minutes after start: 0.0         </div>`)[0];
+                popup_18abc83eb5bee68a672b960b46134a41.setContent(html_05830bb26fe3f6c5bcbc4376d1c85c3f);
+            
+        
+
+        circle_marker_8115dcfd4cccf9e7401603ca686a2304.bindPopup(popup_18abc83eb5bee68a672b960b46134a41)
+        ;
+
+        
+    
+    
+            circle_marker_8115dcfd4cccf9e7401603ca686a2304.bindTooltip(
+                `<div>
+                     Gerona: T+0.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c0575f461de8de62bf98bdc683db3e7d = L.marker(
+                [41.9794, 2.8214],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_68cd4eb46682dc973fe0a90f3dc13d5f = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eGerona\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_c0575f461de8de62bf98bdc683db3e7d.setIcon(div_icon_68cd4eb46682dc973fe0a90f3dc13d5f);
+        
+    
+                marker_c0575f461de8de62bf98bdc683db3e7d.setIcon(div_icon_68cd4eb46682dc973fe0a90f3dc13d5f);
+            
+    
+            var circle_marker_28f8426fe0a9a22341dd6fecea008a33 = L.circleMarker(
+                [41.3851, 2.1734],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_0de6ff73d073519cd16a18a95b727f8c = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_cfd93af40680377276469d8f9e7293a8 = $(`<div id="html_cfd93af40680377276469d8f9e7293a8" style="width: 100.0%; height: 100.0%;">         <b>Barcelona</b><br>         Country: Spain<br>         Outage time: 12:36:00<br>         Minutes after start: 1.0         </div>`)[0];
+                popup_0de6ff73d073519cd16a18a95b727f8c.setContent(html_cfd93af40680377276469d8f9e7293a8);
+            
+        
+
+        circle_marker_28f8426fe0a9a22341dd6fecea008a33.bindPopup(popup_0de6ff73d073519cd16a18a95b727f8c)
+        ;
+
+        
+    
+    
+            circle_marker_28f8426fe0a9a22341dd6fecea008a33.bindTooltip(
+                `<div>
+                     Barcelona: T+1.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e1688034727c1f43ac79062df7e8785f = L.marker(
+                [41.3851, 2.1734],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_8c6a3afccb68f8efcf9cc4558274efa5 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eBarcelona\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_e1688034727c1f43ac79062df7e8785f.setIcon(div_icon_8c6a3afccb68f8efcf9cc4558274efa5);
+        
+    
+                marker_e1688034727c1f43ac79062df7e8785f.setIcon(div_icon_8c6a3afccb68f8efcf9cc4558274efa5);
+            
+    
+            var circle_marker_513ce7275bc6f3378ea33a5b1fa707ad = L.circleMarker(
+                [41.6488, -0.8891],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_f63e3f5a48dbb3a2d5d7ad15d061ec82 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3f0ef1fc4bc5dc94180407e3564d2a05 = $(`<div id="html_3f0ef1fc4bc5dc94180407e3564d2a05" style="width: 100.0%; height: 100.0%;">         <b>Zaragoza</b><br>         Country: Spain<br>         Outage time: 12:38:00<br>         Minutes after start: 3.0         </div>`)[0];
+                popup_f63e3f5a48dbb3a2d5d7ad15d061ec82.setContent(html_3f0ef1fc4bc5dc94180407e3564d2a05);
+            
+        
+
+        circle_marker_513ce7275bc6f3378ea33a5b1fa707ad.bindPopup(popup_f63e3f5a48dbb3a2d5d7ad15d061ec82)
+        ;
+
+        
+    
+    
+            circle_marker_513ce7275bc6f3378ea33a5b1fa707ad.bindTooltip(
+                `<div>
+                     Zaragoza: T+3.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e5920272c27ee4e19e86b2d579826dfd = L.marker(
+                [41.6488, -0.8891],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_831454592fd642b34e9c00cfa0279e57 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eZaragoza\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_e5920272c27ee4e19e86b2d579826dfd.setIcon(div_icon_831454592fd642b34e9c00cfa0279e57);
+        
+    
+                marker_e5920272c27ee4e19e86b2d579826dfd.setIcon(div_icon_831454592fd642b34e9c00cfa0279e57);
+            
+    
+            var circle_marker_3ae14b21b2b42182d36fe81689661090 = L.circleMarker(
+                [43.2627, -2.9253],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_b8beb270cbe916b207bb664fe6b32f3b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c36094c4b37e4cbbd4fd5a80bb237531 = $(`<div id="html_c36094c4b37e4cbbd4fd5a80bb237531" style="width: 100.0%; height: 100.0%;">         <b>Bilbao</b><br>         Country: Spain<br>         Outage time: 12:39:00<br>         Minutes after start: 4.0         </div>`)[0];
+                popup_b8beb270cbe916b207bb664fe6b32f3b.setContent(html_c36094c4b37e4cbbd4fd5a80bb237531);
+            
+        
+
+        circle_marker_3ae14b21b2b42182d36fe81689661090.bindPopup(popup_b8beb270cbe916b207bb664fe6b32f3b)
+        ;
+
+        
+    
+    
+            circle_marker_3ae14b21b2b42182d36fe81689661090.bindTooltip(
+                `<div>
+                     Bilbao: T+4.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fb80adce03fc1d0a169c6260c72b888e = L.marker(
+                [43.2627, -2.9253],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_4fe58c90d7ce1c3758fdafc9e6755073 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eBilbao\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_fb80adce03fc1d0a169c6260c72b888e.setIcon(div_icon_4fe58c90d7ce1c3758fdafc9e6755073);
+        
+    
+                marker_fb80adce03fc1d0a169c6260c72b888e.setIcon(div_icon_4fe58c90d7ce1c3758fdafc9e6755073);
+            
+    
+            var circle_marker_2ea142b5c64d6d542c0973dcc35d2561 = L.circleMarker(
+                [40.4168, -3.7038],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_3f4e2002ea0b8b3e52e619d891fa19c2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0a906daede95ffff904e46abfc8c6f90 = $(`<div id="html_0a906daede95ffff904e46abfc8c6f90" style="width: 100.0%; height: 100.0%;">         <b>Madrid</b><br>         Country: Spain<br>         Outage time: 12:40:00<br>         Minutes after start: 5.0         </div>`)[0];
+                popup_3f4e2002ea0b8b3e52e619d891fa19c2.setContent(html_0a906daede95ffff904e46abfc8c6f90);
+            
+        
+
+        circle_marker_2ea142b5c64d6d542c0973dcc35d2561.bindPopup(popup_3f4e2002ea0b8b3e52e619d891fa19c2)
+        ;
+
+        
+    
+    
+            circle_marker_2ea142b5c64d6d542c0973dcc35d2561.bindTooltip(
+                `<div>
+                     Madrid: T+5.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6aa8c5af1f5ccdab75f9d9c2737f2eeb = L.marker(
+                [40.4168, -3.7038],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_7edb7004dbe941681c1705d10bc0384b = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eMadrid\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_6aa8c5af1f5ccdab75f9d9c2737f2eeb.setIcon(div_icon_7edb7004dbe941681c1705d10bc0384b);
+        
+    
+                marker_6aa8c5af1f5ccdab75f9d9c2737f2eeb.setIcon(div_icon_7edb7004dbe941681c1705d10bc0384b);
+            
+    
+            var circle_marker_aca1e2a772396341182cf68d82418e05 = L.circleMarker(
+                [39.4699, -0.3763],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_8f54b2f8f07244fa4111e5e95091966d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_d76de1ba7800bda8874fce2613496903 = $(`<div id="html_d76de1ba7800bda8874fce2613496903" style="width: 100.0%; height: 100.0%;">         <b>Valencia</b><br>         Country: Spain<br>         Outage time: 12:41:00<br>         Minutes after start: 6.0         </div>`)[0];
+                popup_8f54b2f8f07244fa4111e5e95091966d.setContent(html_d76de1ba7800bda8874fce2613496903);
+            
+        
+
+        circle_marker_aca1e2a772396341182cf68d82418e05.bindPopup(popup_8f54b2f8f07244fa4111e5e95091966d)
+        ;
+
+        
+    
+    
+            circle_marker_aca1e2a772396341182cf68d82418e05.bindTooltip(
+                `<div>
+                     Valencia: T+6.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f020883c6a01b8151fcc52d510be18fa = L.marker(
+                [39.4699, -0.3763],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_e49dd778e3fcc3b28e3ce21ab7781e7a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eValencia\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_f020883c6a01b8151fcc52d510be18fa.setIcon(div_icon_e49dd778e3fcc3b28e3ce21ab7781e7a);
+        
+    
+                marker_f020883c6a01b8151fcc52d510be18fa.setIcon(div_icon_e49dd778e3fcc3b28e3ce21ab7781e7a);
+            
+    
+            var circle_marker_9d9aef33f85dc7bc885dc1908e1be993 = L.circleMarker(
+                [37.3891, -5.9845],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_ced24fcaa746ca47122a9bd8a7792eb7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_a1691e1183cf1112612f768a29ade71d = $(`<div id="html_a1691e1183cf1112612f768a29ade71d" style="width: 100.0%; height: 100.0%;">         <b>Sevilla</b><br>         Country: Spain<br>         Outage time: 12:43:00<br>         Minutes after start: 8.0         </div>`)[0];
+                popup_ced24fcaa746ca47122a9bd8a7792eb7.setContent(html_a1691e1183cf1112612f768a29ade71d);
+            
+        
+
+        circle_marker_9d9aef33f85dc7bc885dc1908e1be993.bindPopup(popup_ced24fcaa746ca47122a9bd8a7792eb7)
+        ;
+
+        
+    
+    
+            circle_marker_9d9aef33f85dc7bc885dc1908e1be993.bindTooltip(
+                `<div>
+                     Sevilla: T+8.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6176c9337744c7fb151a4c310d9cc8cd = L.marker(
+                [37.3891, -5.9845],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_1c648fef3e7916eea447ef1b1488d1d2 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eSevilla\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_6176c9337744c7fb151a4c310d9cc8cd.setIcon(div_icon_1c648fef3e7916eea447ef1b1488d1d2);
+        
+    
+                marker_6176c9337744c7fb151a4c310d9cc8cd.setIcon(div_icon_1c648fef3e7916eea447ef1b1488d1d2);
+            
+    
+            var circle_marker_ef10c15eaec1b54cf4670911ab6b136c = L.circleMarker(
+                [36.7213, -4.4213],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_b4ca99c537fe9831864cd44dd3de6728 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_d55c260b1ad6d617a6b2d46629a3ca86 = $(`<div id="html_d55c260b1ad6d617a6b2d46629a3ca86" style="width: 100.0%; height: 100.0%;">         <b>Malaga</b><br>         Country: Spain<br>         Outage time: 12:44:00<br>         Minutes after start: 9.0         </div>`)[0];
+                popup_b4ca99c537fe9831864cd44dd3de6728.setContent(html_d55c260b1ad6d617a6b2d46629a3ca86);
+            
+        
+
+        circle_marker_ef10c15eaec1b54cf4670911ab6b136c.bindPopup(popup_b4ca99c537fe9831864cd44dd3de6728)
+        ;
+
+        
+    
+    
+            circle_marker_ef10c15eaec1b54cf4670911ab6b136c.bindTooltip(
+                `<div>
+                     Malaga: T+9.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_749d08027f3e6999f472608b2bce0821 = L.marker(
+                [36.7213, -4.4213],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_1a5863e37e50785eace837494b51cd28 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eMalaga\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_749d08027f3e6999f472608b2bce0821.setIcon(div_icon_1a5863e37e50785eace837494b51cd28);
+        
+    
+                marker_749d08027f3e6999f472608b2bce0821.setIcon(div_icon_1a5863e37e50785eace837494b51cd28);
+            
+    
+            var circle_marker_6568f5f792a128557c8120c3f3c3b9b4 = L.circleMarker(
+                [38.7223, -9.1393],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_53d24865d9cdb94e6fb1575023dc7823 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_af8a0b2c0ff16c7c29c2911ce7860925 = $(`<div id="html_af8a0b2c0ff16c7c29c2911ce7860925" style="width: 100.0%; height: 100.0%;">         <b>Lisbon</b><br>         Country: Portugal<br>         Outage time: 12:42:00<br>         Minutes after start: 7.0         </div>`)[0];
+                popup_53d24865d9cdb94e6fb1575023dc7823.setContent(html_af8a0b2c0ff16c7c29c2911ce7860925);
+            
+        
+
+        circle_marker_6568f5f792a128557c8120c3f3c3b9b4.bindPopup(popup_53d24865d9cdb94e6fb1575023dc7823)
+        ;
+
+        
+    
+    
+            circle_marker_6568f5f792a128557c8120c3f3c3b9b4.bindTooltip(
+                `<div>
+                     Lisbon: T+7.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_01467f1336b9b4dab6a511e1942ffa75 = L.marker(
+                [38.7223, -9.1393],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_2255a27b253ceb346d81f03a63142be6 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eLisbon\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_01467f1336b9b4dab6a511e1942ffa75.setIcon(div_icon_2255a27b253ceb346d81f03a63142be6);
+        
+    
+                marker_01467f1336b9b4dab6a511e1942ffa75.setIcon(div_icon_2255a27b253ceb346d81f03a63142be6);
+            
+    
+            var circle_marker_6fe85fd680fbf5a6c4f4b51c89f72479 = L.circleMarker(
+                [41.1579, -8.6291],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_b337e7b1fa6a8889000e027f8e75c779 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8b724b8d97da8d2acefc28db29842e5c = $(`<div id="html_8b724b8d97da8d2acefc28db29842e5c" style="width: 100.0%; height: 100.0%;">         <b>Porto</b><br>         Country: Portugal<br>         Outage time: 12:41:00<br>         Minutes after start: 6.0         </div>`)[0];
+                popup_b337e7b1fa6a8889000e027f8e75c779.setContent(html_8b724b8d97da8d2acefc28db29842e5c);
+            
+        
+
+        circle_marker_6fe85fd680fbf5a6c4f4b51c89f72479.bindPopup(popup_b337e7b1fa6a8889000e027f8e75c779)
+        ;
+
+        
+    
+    
+            circle_marker_6fe85fd680fbf5a6c4f4b51c89f72479.bindTooltip(
+                `<div>
+                     Porto: T+6.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5176de0c029e294bc87bb3073de5cb85 = L.marker(
+                [41.1579, -8.6291],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_7ec3b1700a6100b23af0998a3dd18b86 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003ePorto\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_5176de0c029e294bc87bb3073de5cb85.setIcon(div_icon_7ec3b1700a6100b23af0998a3dd18b86);
+        
+    
+                marker_5176de0c029e294bc87bb3073de5cb85.setIcon(div_icon_7ec3b1700a6100b23af0998a3dd18b86);
+            
+    
+            var circle_marker_e4cb29f3d359b558aeb5864c11b2b6af = L.circleMarker(
+                [44.8378, -0.5792],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_55a89546410c556247d115a0d5f11675 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_05053e3aa661a2d8b838271e136451e7 = $(`<div id="html_05053e3aa661a2d8b838271e136451e7" style="width: 100.0%; height: 100.0%;">         <b>Bordeaux</b><br>         Country: France<br>         Outage time: 12:40:00<br>         Minutes after start: 5.0         </div>`)[0];
+                popup_55a89546410c556247d115a0d5f11675.setContent(html_05053e3aa661a2d8b838271e136451e7);
+            
+        
+
+        circle_marker_e4cb29f3d359b558aeb5864c11b2b6af.bindPopup(popup_55a89546410c556247d115a0d5f11675)
+        ;
+
+        
+    
+    
+            circle_marker_e4cb29f3d359b558aeb5864c11b2b6af.bindTooltip(
+                `<div>
+                     Bordeaux: T+5.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_10858dd7938b1fd0d64b61add861a4f5 = L.marker(
+                [44.8378, -0.5792],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_a592f0fd3b7f9ea9b65fbe8695c65ba9 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eBordeaux\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_10858dd7938b1fd0d64b61add861a4f5.setIcon(div_icon_a592f0fd3b7f9ea9b65fbe8695c65ba9);
+        
+    
+                marker_10858dd7938b1fd0d64b61add861a4f5.setIcon(div_icon_a592f0fd3b7f9ea9b65fbe8695c65ba9);
+            
+    
+            var circle_marker_d59aead0dd026f925998e658ac875461 = L.circleMarker(
+                [43.6047, 1.4442],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+        var popup_7a1382f2d6295a7c9c5f5ac6b86ea6eb = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3247e0ca30a84aefc09c588c04f8ec0a = $(`<div id="html_3247e0ca30a84aefc09c588c04f8ec0a" style="width: 100.0%; height: 100.0%;">         <b>Toulouse</b><br>         Country: France<br>         Outage time: 12:38:00<br>         Minutes after start: 3.0         </div>`)[0];
+                popup_7a1382f2d6295a7c9c5f5ac6b86ea6eb.setContent(html_3247e0ca30a84aefc09c588c04f8ec0a);
+            
+        
+
+        circle_marker_d59aead0dd026f925998e658ac875461.bindPopup(popup_7a1382f2d6295a7c9c5f5ac6b86ea6eb)
+        ;
+
+        
+    
+    
+            circle_marker_d59aead0dd026f925998e658ac875461.bindTooltip(
+                `<div>
+                     Toulouse: T+3.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_14be2fd3da37c4d6c5c4ce0fdd5bf9a5 = L.marker(
+                [43.6047, 1.4442],
+                {
+}
+            ).addTo(map_fa295dd85409f59866a4c6cd8c6acc2a);
+        
+    
+            var div_icon_192097f3e12e4b036464bf2854f80e48 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 10pt; text-align: center;\"\u003eToulouse\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [75, 0],
+  "className": "empty",
+});
+            marker_14be2fd3da37c4d6c5c4ce0fdd5bf9a5.setIcon(div_icon_192097f3e12e4b036464bf2854f80e48);
+        
+    
+                marker_14be2fd3da37c4d6c5c4ce0fdd5bf9a5.setIcon(div_icon_192097f3e12e4b036464bf2854f80e48);
+            
+</script>
+</html>
